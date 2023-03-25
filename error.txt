@@ -1,3 +1,5 @@
+Terminal
+
 2023-03-25 19:03:15,473 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2023-03-25 19:03:15,479 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.first_name AS users_first_name, users.last_name AS users_last_name, users.image_url AS users_image_url 
 FROM users 
@@ -28,3 +30,48 @@ WHERE users.id = %(pk_1)s
 2023-03-25 19:03:21,586 INFO sqlalchemy.engine.Engine ROLLBACK
 127.0.0.1 - - [25/Mar/2023 19:03:21] "GET /users/4 HTTP/1.1" 200 -
 
+Local Host
+
+TemplateSyntaxError
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got 'post'
+
+Traceback (most recent call last)
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask/app.py", line 2551, in __call__
+return self.wsgi_app(environ, start_response)
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask/app.py", line 2531, in wsgi_app
+response = self.handle_exception(e)
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask/app.py", line 2528, in wsgi_app
+response = self.full_dispatch_request()
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+rv = self.handle_user_exception(e)
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+rv = self.dispatch_request()
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take3/app.py", line 118, in show_posts
+return render_template('posts/show.html', post=post)
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask/templating.py", line 146, in render_template
+template = app.jinja_env.get_or_select_template(template_name_or_list)
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+return self.get_template(template_name_or_list, parent, globals)
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1010, in get_template
+return self._load_template(name, globals)
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/jinja2/environment.py", line 969, in _load_template
+template = self.loader.load(self, name, self.make_globals(globals))
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/jinja2/loaders.py", line 138, in load
+code = environment.compile(source, name, filename)
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/jinja2/environment.py", line 768, in compile
+self.handle_exception(source=source_hint)
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/jinja2/environment.py", line 936, in handle_exception
+raise rewrite_traceback_stack(source=source)
+File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take3/templates/posts/show.html", line 11, in template
+<p> {{ for post in user.posts }} </p>
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got 'post'
+The debugger caught an exception in your WSGI application. You can now look at the traceback which led to the error.
+To switch between the interactive traceback and the plaintext one, you can click on the "Traceback" headline. From the text traceback you can also create a paste of it. For code execution mouse-over the frame you want to debug and click on the console icon on the right side.
+
+You can execute arbitrary Python code in the stack frames and there are some extra helpers available for introspection:
+
+dump() shows all variables in the frame
+dump(obj) dumps all that's known about the object
+Brought to you by DON'T PANIC, your friendly Werkzeug powered traceback interpreter.
