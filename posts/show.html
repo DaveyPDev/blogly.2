@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ user.full_name }}{% endblock %}
+
+
+{% block content %}
+
+<h1>{{ post.title }}</h1>
+<form method="POST">
+        <p> {{ post.content }}</p>
+        <p> {{ for post in user.posts }} </p>
+        <p> By {{ post.user.full_name }} on {{ post.friendly_date }} </p>
+
+        <button class="btn btn-primary btn-sm"
+                formaction="/users/{{ post.id }}"
+                formmethod="GET">Cancel Post </button>
+        <button class="btn btn-primary btn-sm"
+                formaction="/users/{{ post.id }}/edit"
+                formmethod="GET">Edit Post </button>
+        <button class="btn btn-danger btn-sm"
+                formaction="/posts/{{ posts.id }}/delete"
+                formmethod="POST">Delete Post </button>
+              
+{% endblock %}

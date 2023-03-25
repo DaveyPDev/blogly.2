@@ -9,6 +9,7 @@ app.app_context().push()
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
+app.config['SECRET_KEY'] = 'passwordsecret'
 
 toolbar = DebugToolbarExtension
 
@@ -50,7 +51,7 @@ def new_user():
     return redirect('/users')
 
 @app.route('/users/<int:user_id>')
-def users_info(user_id):
+def user_info(user_id):
     """ show user info """
 
     user = User.query.get_or_404(user_id)
@@ -102,7 +103,7 @@ def post_new(user_id):
     new_post = Post(
         title = request.form['title'],
         content = request.form['content'],
-        user = user)
+        user_id = user_id)
 
     db.session.add(new_post)
     db.session.commit()
@@ -130,7 +131,7 @@ def update_posts(post_id):
     post.content = request.form['content']
     flash(f"Post '{post.title}' edited")
 
-    db.session.add(post_id)
+    db.session.add(post)
     db.session.commit()
 
     return redirect(f'/users/{post.user_id}')
@@ -142,6 +143,6 @@ def delete_posts(post_id):
     
     db.session.delete(post)
     db.session.commit()
-    flash(f"Post '{post.title} deleted")
+    flash(f"Post '{post.title}' deleted")
 
     return redirect(f"/users/{post.user_id}")
