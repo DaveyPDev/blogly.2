@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} Create User {% endblock %}
+
+{% block content %}
+
+<h1>Add new Post for {{ user.full_name }}</h1>
+
+<form method="POST">
+    <p>Title: <input type="text" name="title" id="title"></p>
+    <p>Content: <input type="text" name="content" id="content"></p>
+
+    <button class="btn btn-primary btn-sm">  Submit </button>
+    <button class="btn btn-danger btn-sm"> Cancel </button>
+</form>
+
+{% endblock %}
